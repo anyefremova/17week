@@ -2,7 +2,19 @@
 // Создайте класс Worker. Класс должен содержать свойства name, surname. Создайте на его основе объект worker. Выведите в консоль созданный объект.
 // Подсказка: имена классов пишем с большой буквы
 
-//Ваш код
+class Worker {
+	constructor(name, surname) {
+		this.name = name;
+		this.surname = surname;
+	}
+
+	fullName() {
+		return {
+			surname: this.surname,
+			name: this.name,
+		}
+	}
+}
 
 //Создаём объекта на основе класса Worker
 const worker = new Worker('Имя', 'Фамилия');
@@ -12,8 +24,6 @@ console.log(worker);
 //Задание 2
 //Добавьте в класс Worker метод fullName, который будет возвращать полное имя работника в формате "Фамилия, Имя". Создайте объект worker2 на основе класса Worker и выведите его полное имя в консоль с помощью метода fullName
 
-//Ваш код
-
 //Создаём объект worker2 на основе класса Worker
 const worker2 = new Worker('Имя', 'Фамилия');
 //Выводим полное имя объекта worker2 в консоль с помощью метода fullName
@@ -22,7 +32,16 @@ console.log(worker2.fullName());
 //Задание 3
 //Создайте класс Car. Класс должен содержать свойства brand, model и year. Создайте на его основе объект car и выведите его свойства в консоль.
 
-//Ваш код
+class Car {
+	constructor(brand, model, year) {
+		this.brand = brand;
+		this.model = model;
+		this.year = year;
+	}
+}
+
+const car = new Car('Chevrolet', 'Aveo', 2014)
+console.log(car);
 
 //Задание 4
 //Добавьте в класс Car метод getAge, который будет возвращать возраст машины (текущий год минус год выпуска). Создайте объект car2 на основе класса Car и выведите его возраст в консоль с помощью метода getAge.
