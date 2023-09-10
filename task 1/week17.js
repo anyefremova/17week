@@ -1,3 +1,4 @@
+/*
 // Задание 1
 // Создайте класс Worker. Класс должен содержать свойства name, surname. Создайте на его основе объект worker. Выведите в консоль созданный объект.
 // Подсказка: имена классов пишем с большой буквы
@@ -38,6 +39,11 @@ class Car {
 		this.model = model;
 		this.year = year;
 	}
+
+	getAge() {
+		const recentYear = new Date().getFullYear();
+		return recentYear - this.year;
+	}
 }
 
 const car = new Car('Chevrolet', 'Aveo', 2014)
@@ -45,8 +51,6 @@ console.log(car);
 
 //Задание 4
 //Добавьте в класс Car метод getAge, который будет возвращать возраст машины (текущий год минус год выпуска). Создайте объект car2 на основе класса Car и выведите его возраст в консоль с помощью метода getAge.
-
-//Ваш код
 
 //Создаём объект car2 на основе класса Car
 const car2 = new Car('Brand', 'Model', 2010);
@@ -56,52 +60,118 @@ console.log(car2.getAge());
 //Задание 5
 //Создайте класс Rectangle. Класс должен содержать свойства width и height. Создайте на его основе объект rectangle и выведите его свойства в консоль.
 
-//Ваш код
+class Rectangle {
+	constructor(width, height) {
+		this.width = width;
+		this.height = height;
+	}
+}
+
+const rectangle = new Rectangle(70, 30)
+console.log(rectangle);
 
 //Задание 6
 //Добавьте в класс Rectangle метод getArea, который будет возвращать площадь прямоугольника (произведение ширины и высоты). Создайте объект rectangle2 на основе класса Rectangle и выведите его площадь в консоль с помощью метода getArea.
 
-//Ваш код
+Rectangle.prototype.getArea = function getArea() {
+	return this.width * this.height;
+}
+
+const rectangle2 = new Rectangle(50, 20)
+console.log(rectangle2.getArea());
 
 //Задание 7
 //Создайте класс Circle. Класс должен содержать свойство radius. Создайте на его основе объект circle и выведите его свойство в консоль.
 
-//Ваш код
+class Circle {
+	constructor(radius) {
+		this.radius = radius;
+	}
+}
+
+const circle = new Circle(20)
+console.log(circle);
 
 //Задание 8
 //Добавьте в класс Circle метод calculateArea, который будет вычислять и возвращать площадь круга. Формула для расчета площади круга: площадь = радиус * радиус * 3.14. Создайте объект circle2 на основе класса Circle с радиусом 3 и выведите его площадь круга в консоль с помощью метода calculateArea.
 
-//Ваш код
+Circle.prototype.calculateArea = function calculateArea() {
+	return this.radius * this.radius * 3, 14;
+}
+
+const circle2 = new Circle(3);
+console.log(circle2.calculateArea());
 
 //Задание 9
 //Создайте класс Student. Класс должен содержать свойства name, age и grade. Создайте на его основе объект student и выведите его свойства в консоль.
 
-//Ваш код
+class Student {
+	constructor(name, age, grade) {
+		this.name = name;
+		this.age = age;
+		this.grade = grade;
+	}
+}
+
+const student = new Student('Катя', 13, 4);
+console.log(student);
 
 //Задание 10
 //Добавьте в класс Student метод increaseGrade, который будет увеличивать текущую оценку на 1. Создайте объект student2 на основе класса Student, увеличьте его оценку с помощью метода increaseGrade и выведите новую оценку в консоль.
 
-//Ваш код
+Student.prototype.increaseGrade = function increaseGrade() {
+	return this.grade + 1;
+}
+
+const student2 = new Student('Алена', 14, 4);
+console.log(student2.increaseGrade());
 
 //Задание 11
 //Создайте класс Book. Класс должен содержать свойства title, author и year. Создайте на его основе объект book и выведите его свойства в консоль.
 
-//Ваш код
+class Book {
+	constructor(title, author, year) {
+		this.title = title;
+		this.author = author;
+		this.year = year;
+	}
+}
+
+const book = new Book('Алиса в стране чудес', 'Льюис Кэрролл', 1862);
+console.log(book);
 
 //Задание 12
 //Добавьте в класс Book метод getTitleAndAuthor, который будет возвращать строку в формате "Название книги - Автор". Создайте объект book2 на основе класса Book и выведите его название и автора в консоль с помощью метода getTitleAndAuthor.
 
-//Ваш код
+Book.prototype.getTitleAndAuthor = function getTitleAndAuthor() {
+	return `${this.title} - ${this.author}`;
+}
+
+const book2 = new Book('Война и мир', 'Лев Толстой', 1863);
+console.log(book2.getTitleAndAuthor());
 
 //Задание 13
 //Создайте класс BankAccount. Класс должен содержать свойства accountNumber и balance. Создайте на его основе объект account и выведите его свойства в консоль.
 
-//Ваш код
+class BankAccount {
+	constructor(accountNumber, balance) {
+		this.accountNumber = accountNumber;
+		this.balance = balance;
+	}
+}
+
+const account = new BankAccount(204, 654876);
+console.log(account);
 
 //Задание 14
 //Добавьте в класс BankAccount метод deposit, который будет увеличивать баланс на заданную сумму. Создайте объект account2 на основе класса BankAccount, пополните его баланс с помощью метода deposit и выведите новый баланс в консоль.
 
-//Ваш код
+BankAccount.prototype.deposit = function deposit() {
+	return this.balance + 50000;
+}
+
+const account2 = new BankAccount(561, 375432);
+console.log(account2.deposit());
 
 //Задание 15
 //В класс BankAccount добавлен метод withdraw, который уменьшает баланс на заданную сумму. Если запрошенная сумма превышает текущий баланс, выведите сообщение "Недостаточно средств". Создайте объект account3 на основе класса BankAccount, попробуйте снять с него сумму, превышающую баланс, и выведите соответствующее сообщение в консоль.
@@ -113,20 +183,27 @@ class BankAccount {
 
 	withdraw(amount) {
 		if (amount <= this.balance) {
-			//Уменьшите баланс на заданную сумму
+			console.log(this.balance - amount);
 		} else {
-			//Выводите в консоль сообщение
+			console.log("Недостаточно средств");
 		}
 	}
 }
 //Создайте объект account3 на основе класса BankAccount
 //Попытайтесь снять сумму, превышающую баланс
 
+const account3 = new BankAccount(456, 57864);
+account3.withdraw(60000);
+*/
+
 //Задание 16
 //Создайте класс Animal. Класс должен содержать свойства name и sound. Создайте на его основе объект animal и выведите его свойства в консоль.
 
-//Ваш код
+class Animal {
 
+}
+
+/*
 //Задание 17
 //Добавьте в класс Animal метод makeSound, который будет выводить в консоль звук животного. Создайте объект animal2 на основе класса Animal и вызовите метод makeSound.
 
@@ -210,3 +287,4 @@ class Point {
 //Добавьте в класс Square метод calculateArea, который будет вычислять и возвращать площадь квадрата (произведение длины стороны на саму себя). Создайте объект square2 на основе класса Square со стороной 5 и выведите его площадь квадрата в консоль с помощью метода calculateArea.
 
 //Ваш код
+*/
