@@ -70,3 +70,30 @@ const data = [
         image: 'https://cdn.dealerspike.com/imglib/products/harley-showroom/2020/livewire/main/Vivid-Black-Main.png'
     }
 ];
+
+for (i = 0; i < data.length; i += 1) {
+    if (data[i].type === 'bike') {
+        data[i] = new Bike(data[i].type, data[i].price, data[i].brand, data[i].maxSpeed);
+    }
+    else data[i] = new Car(data[i].type, data[i].price, data[i].brand, data[i].doors);
+}
+
+const container = document.getElementById('container');
+
+Car.prototype.carInfo = function carInfo() {
+    const item = document.createElement('p');
+    item.textContent = `Марка: ${this.brand}, Цена: ${this.price}, Количество дверей: ${this.doors}`;
+    container.appendChild(item);
+}
+
+data[0].carInfo();
+data[1].carInfo();
+
+Bike.prototype.bikeInfo = function bikeInfo() {
+    const item = document.createElement('p');
+    item.textContent = `Марка: ${this.brand}, Цена: ${this.price}, Максимальная скорость: ${this.maxSpeed}`;
+    container.appendChild(item);
+}
+
+data[2].bikeInfo();
+data[3].bikeInfo();
