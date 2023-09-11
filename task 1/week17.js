@@ -1,4 +1,3 @@
-/*
 // Задание 1
 // Создайте класс Worker. Класс должен содержать свойства name, surname. Создайте на его основе объект worker. Выведите в консоль созданный объект.
 // Подсказка: имена классов пишем с большой буквы
@@ -194,25 +193,43 @@ class BankAccount {
 
 const account3 = new BankAccount(456, 57864);
 account3.withdraw(60000);
-*/
 
 //Задание 16
 //Создайте класс Animal. Класс должен содержать свойства name и sound. Создайте на его основе объект animal и выведите его свойства в консоль.
 
 class Animal {
-
+	constructor(name, sound) {
+		this.name = name;
+		this.sound = sound
+	}
 }
 
-/*
+const animal = new Animal('кот', 'мяу');
+console.log(animal);
+
+
 //Задание 17
 //Добавьте в класс Animal метод makeSound, который будет выводить в консоль звук животного. Создайте объект animal2 на основе класса Animal и вызовите метод makeSound.
 
-//Ваш код
+Animal.prototype.makeSound = function makeSound() {
+	return this.sound;
+}
+
+const animal2 = new Animal('собака', 'гав');
+console.log(animal2.makeSound());
 
 //Задание 18
 //Создайте класс Point. Класс должен содержать свойства x и y. Создайте на его основе объект point и выведите его свойства в консоль.
 
-//Ваш код
+class Point {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+const point = new Point(2, 5);
+console.log(point);
 
 //Задание 19
 //В классе Point добавлен метод getDistance, который будет возвращать расстояние от точки до начала координат (0,0). Создайте объект point2 на основе класса Point и выведите его расстояние до начала координат с помощью метода getDistance.
@@ -228,63 +245,162 @@ class Point {
 	}
 }
 
-//Ваш код
+const point2 = new Point(4, 7);
+console.log(point2.getDistance());
+
 
 //Задание 20
 //Создайте класс Calculator. Класс должен содержать методы add, subtract, multiply и divide, которые будут выполнять соответствующие математические операции над двумя числами и возвращать результат. Создайте объект calculator на основе класса Calculator, вызовите каждый из методов и выведите результаты в консоль.
 
-//Ваш код
+class Calculator {
+	constructor(number1, number2) {
+		this.number1 = number1;
+		this.number2 = number2;
+	}
+
+	add() {
+		return this.number1 + this.number2;
+	}
+
+	subtract() {
+		return this.number1 - this.number2;
+	}
+
+	multiply() {
+		return this.number1 * this.number2;
+	}
+
+	divide() {
+		return this.number1 / this.number2;
+	}
+}
+
+const calculator = new Calculator(5, 7);
+console.log(calculator.add());
+console.log(calculator.subtract());
+console.log(calculator.multiply());
+console.log(calculator.divide());
+
 
 //Задание 21
 //Создайте класс Person. Класс должен содержать свойства name, age и city. Создайте на его основе объект person и выведите его свойства в консоль.
 
-//Ваш код
+class Person {
+	constructor(name, age, city) {
+		this.name = name;
+		this.age = age;
+		this.city = city;
+	}
+}
+
+const person = new Person('Аня', 21, 'Пермь');
+console.log(person);
 
 //Задание 22
 //Добавьте в класс Person метод changeCity, который будет изменять значение свойства city на новое значение. Создайте объект person2 на основе класса Person, вызовите метод changeCity с аргументом "New York" и выведите новое значение свойства city в консоль.
 
-//Ваш код
+Person.prototype.changeCity = function changeCity(newCity) {
+	return this.city = newCity;
+}
+
+const person2 = new Person('Маша', 20, 'Екатеринбург');
+console.log(person2);
+person2.changeCity("New York");
+console.log(person2);
 
 //Задание 23
 //Создайте класс Employee. Класс должен содержать свойства name, position и salary. Создайте на его основе объект employee и выведите его свойства в консоль.
 //Подсказка: Используйте методы класса, чтобы создать объект employee и вывести его свойства.
 
-//Ваш код
+class Employee {
+	constructor(name, position, salary) {
+		this.name = name;
+		this.position = position;
+		this.salary = salary;
+	}
+}
+
+const employee = new Employee("Аня", "Frontend-developer", 80000);
+console.log(employee);
 
 //Задание 24
 //Добавьте в класс Employee метод calculateBonus, который будет принимать процент бонуса и увеличивать зарплату сотрудника на соответствующую сумму. Создайте объект employee2 на основе класса Employee и вызовите метод calculateBonus с процентом 10. Выведите новую зарплату сотрудника в консоль.
 //Подсказка: Используйте метод call или apply, чтобы вызвать метод calculateBonus для объекта employee2 и передать процент бонуса.
 
-//Ваш код
+Employee.prototype.calculateBonus = function calculateBonus(percent) {
+	return this.salary + (this.salary * (percent / 100))
+}
+
+const employee2 = new Employee("Александр", "нефтяник", 150000)
+console.log(employee2.calculateBonus(10));
 
 //Задание 25
 //Создайте класс Product. Класс должен содержать свойства name, price и quantity. Создайте на его основе объект product и выведите его свойства в консоль.
 //Подсказка: Используйте методы класса, чтобы создать объект product и вывести его свойства.
 
-//Ваш код
+class Product {
+	constructor(name, price, quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+}
+
+const product = new Product("Айфон", 100000, 30);
+console.log(product);
 
 //Задание 26
 //Добавьте в класс Product метод calculateTotalPrice, который будет возвращать общую стоимость продукта (произведение цены на количество). Создайте объект product2 на основе класса Product с ценой 10 и количеством 5. Выведите общую стоимость продукта в консоль с помощью метода calculateTotalPrice.
 
-//Ваш код
+Product.prototype.calculateTotalPrice = function calculateTotalPrice() {
+	return this.price * this.quantity
+}
+
+const product2 = new Product("Огурец", 10, 5);
+console.log(product2.calculateTotalPrice());
 
 //Задание 27
 //Создайте класс Triangle. Класс должен содержать свойства side1, side2 и side3, которые представляют длины сторон треугольника. Создайте на его основе объект triangle и выведите его свойства в консоль.
 
-//Ваш код
+class Triangle {
+	constructor(side1, side2, side3) {
+		this.side1 = side1;
+		this.side2 = side2;
+		this.side3 = side3;
+	}
+}
+
+const triangle = new Triangle(12, 9, 9);
+console.log(triangle);
 
 //Задание 28
 //Добавьте в класс Triangle метод calculatePerimeter, который будет возвращать периметр треугольника (сумма длин всех сторон). Создайте объект triangle2 на основе класса Triangle со сторонами 3, 4 и 5. Выведите периметр треугольника в консоль с помощью метода calculatePerimeter.
 
-//Ваш код
+Triangle.prototype.calculatePerimeter = function calculatePerimeter() {
+	return this.side1 + this.side2 + this.side3;
+}
+
+const triangle2 = new Triangle(3, 4, 5);
+console.log(triangle2.calculatePerimeter());
 
 //Задание 29
 //Создайте класс Square. Класс должен содержать свойство side, представляющее длину стороны квадрата. Создайте на его основе объект square и выведите его свойство в консоль.
 
-//Ваш код
+class Square {
+	constructor(side) {
+		this.side = side;
+	}
+}
+
+const square = new Square(4);
+console.log(square);
 
 //Задание 30
 //Добавьте в класс Square метод calculateArea, который будет вычислять и возвращать площадь квадрата (произведение длины стороны на саму себя). Создайте объект square2 на основе класса Square со стороной 5 и выведите его площадь квадрата в консоль с помощью метода calculateArea.
 
-//Ваш код
-*/
+Square.prototype.calculateArea = function calculateArea() {
+	return this.side * this.side;
+}
+
+const square2 = new Square(5);
+console.log(square2.calculateArea());
